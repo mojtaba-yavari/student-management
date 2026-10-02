@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>سیستم مدیریت دانشجویان</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>🎓 سیستم مدیریت دانشجویان</h1>
+      <p>افزودن، مشاهده، جست‌وجو و مدیریت اطلاعات دانشجویان</p>
+    </header>
+
+    <main class="container">
+      <section class="card">
+        <h2>داشبورد</h2>
+        <div class="form-row">
+          <div>
+            <span>تعداد کل دانشجویان :</span>
+            <span id="allstudents">0</span>
+          </div>
+          <div>
+            <span>تعداد دانشجویان قبول :</span>
+            <span id="Accepted">0</span>
+          </div>
+          <div>
+            <span> تعداد دانشجویان مردود:</span>
+            <span id="Rejected">0</span>
+          </div>
+          <div>
+            <span> بالا ترین نمره :</span>
+            <span id="maxscor">0</span>
+          </div>
+          <div>
+            <span> میانگین نمرات :</span>
+            <span id="ave">0</span>
+          </div>
+        </div>
+      </section>
+      <!-- ============================= -->
+      <!-- بخش ۱: فرم افزودن دانشجو       -->
+      <!-- ============================= -->
+      <section class="card" id="add-student-section">
+        <h2>➕ افزودن دانشجوی جدید</h2>
+
+        <form id="student-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">نام</label>
+              <input
+                type="text"
+                id="firstName"
+                name="firstName"
+                placeholder="مثال: علی"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="lastName">نام خانوادگی</label>
+              <input
+                type="text"
+                id="lastName"
+                name="lastName"
+                placeholder="مثال: رضایی"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="age">سن</label>
+              <input
+                type="number"
+                id="age"
+                name="age"
+                min="15"
+                max="80"
+                placeholder="مثال: 20"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="course">نام درس</label>
+              <input
+                type="text"
+                id="course"
+                name="course"
+                placeholder="مثال: ریاضی"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="midterm">نمره میان‌ترم (۰ تا ۲۰)</label>
+              <input
+                type="number"
+                id="midterm"
+                name="midterm"
+                min="0"
+                max="20"
+                step="0.25"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="final">نمره پایان‌ترم (۰ تا ۲۰)</label>
+              <input
+                type="number"
+                id="final"
+                name="final"
+                min="0"
+                max="20"
+                step="0.25"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="activity">نمره فعالیت کلاسی (۰ تا ۲۰)</label>
+              <input
+                type="number"
+                id="activity"
+                name="activity"
+                min="0"
+                max="20"
+                step="0.25"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary btn-submit">
+              ثبت دانشجو
+            </button>
+          </div>
+
+          <p id="form-message" class="form-message hidden" role="alert"></p>
+        </form>
+      </section>
+
+      <section class="card card-s hidden" id="Success">
+        <div>دانشجو با موفقیت ثبت شد</div>
+      </section>
+
+      <!-- ============================= -->
+      <!-- بخش ۲: جست‌وجو و فیلتر          -->
+      <!-- ============================= -->
+      <section class="card" id="search-filter-section">
+        <h2>🔍 جست‌وجو و فیلتر</h2>
+
+        <div class="filter-row">
+          <div class="form-group">
+            <label for="search-input">جست‌وجوی نام دانشجو</label>
+            <input
+              type="search"
+              id="search-input"
+              placeholder="نام یا نام خانوادگی را وارد کنید..."
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="filter-status">فیلتر بر اساس وضعیت تحصیلی</label>
+            <select id="filter-status">
+              <option value="all">همه</option>
+              <option value="عالی">عالی</option>
+              <option value="خوب">خوب</option>
+              <option value="قابل قبول">قابل قبول</option>
+              <option value="مردود">مردود</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="sort-grade">مرتب‌سازی بر اساس نمره نهایی</label>
+            <select id="sort-grade">
+              <option value="none">بدون مرتب‌سازی</option>
+              <option value="desc">نزولی (بیشترین به کمترین)</option>
+              <option value="asc">صعودی (کمترین به بیشترین)</option>
+            </select>
+          </div>
+
+          <!-- <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-m">جستجو</button>
+          </div> -->
+        </div>
+      </section>
+
+      <!-- ============================= -->
+      <!-- بخش ۳: نمایش دانشجویان         -->
+      <!-- ============================= -->
+      <section class="card" id="students-section">
+        <div class="section-header">
+          <h2>📋 لیست دانشجویان</h2>
+
+          <span class="badge">
+            <div>دانشجو :</div>
+            <div id="students-count">0</div>
+          </span>
+        </div>
+
+        <div id="students-list" class="students-grid"></div>
+
+        <!-- پیام خالی بودن لیست -->
+        <p id="empty-message" class="empty-message hidden">
+          هیچ دانشجویی مطابق با معیارهای شما یافت نشد.
+        </p>
+        <div class="pagination">
+          <button class="pagination-btn" id="prev-page">قبلی</button>
+          <button class="pagination-btn" id="next-page">بعدی</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============================= -->
+    <!-- مودال نمایش جزئیات دانشجو       -->
+    <!-- ============================= -->
+    <div id="details-modal" class="modal" hidden>
+      <div class="modal-content">
+        <button class="modal-close" id="modal-close" aria-label="بستن">
+          &times;
+        </button>
+        <h2>جزئیات دانشجو</h2>
+        <div id="modal-body"></div>
+      </div>
+    </div>
+
+    <div id="Delay" class="modal hidden">
+      <div class="modal-content">
+        <div>درحال دریافت اطلاعات ....</div>
+      </div>
+    </div>
+
+    <!-- فایل اصلی ماژول -->
+    <script type="module" src="js/main2.js"></script>
+  </body>
+</html>
