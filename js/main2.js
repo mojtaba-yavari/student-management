@@ -147,6 +147,7 @@ function renderStudents(st) {
   });
   students_count.textContent = st.length;
   cheackdasbord();
+  Chart();
 
   if (st.length === 0) {
     empty_message.classList.remove("hidden");
@@ -432,3 +433,44 @@ function topFunction() {
 }
 
 mybutton.addEventListener("click", () => topFunction());
+
+/////////////////////
+let al = document.querySelector(".al");
+let ga = document.querySelector(".ga");
+let kh = document.querySelector(".kh");
+let mr = document.querySelector(".mr");
+
+function Chart() {
+  let ali = 0;
+  let gai = 0;
+  let khi = 0;
+  let mri = 0;
+
+  console.log("hi");
+  students.forEach((s) => {
+    switch (s.getStatus()) {
+      case "عالی":
+        ali++;
+        break;
+      case "خوب":
+        khi++;
+        break;
+      case "قابل قبول":
+        gai++;
+        break;
+      case "مردود":
+        mri++;
+        break;
+    }
+  });
+  let len = students.length;
+  al.textContent = `${(ali / len) * 100}%`;
+  ga.textContent = `${(gai / len) * 100}%`;
+  kh.textContent = `${(khi / len) * 100}%`;
+  mr.textContent = `${(mri / len) * 100}%`;
+  //////////
+  al.style.width = `${(ali / len) * 100}%`;
+  ga.style.width = `${(gai / len) * 100}%`;
+  kh.style.width = `${(khi / len) * 100}%`;
+  mr.style.width = `${(mri / len) * 100}%`;
+}
