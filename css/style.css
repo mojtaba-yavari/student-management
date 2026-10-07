@@ -678,11 +678,12 @@ body {
 
   background: linear-gradient(135deg, var(--color-primary) 0%, #7c3aed 100%);
   overflow-x: hidden;
-  padding-top: 60px;
+  padding-top: 40px;
   transition: 0.5s;
 }
 
-.sidepanel button {
+.sidepanel button,
+a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 20px;
