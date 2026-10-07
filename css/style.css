@@ -633,41 +633,35 @@ body {
 }
 
 #myBtn:hover {
-  background-color: #555; /* Add a dark-grey background on hover */
+  background-color: #555;
 }
 /*//////////////////////*/
 
-/* Make sure that padding behaves as expected */
-* {
-  box-sizing: border-box;
-}
-
-/* Container for skill bars */
-.container {
-  width: 100%; /* Full width */
-  background-color: #ddd; /* Grey background */
+.container1 {
+  width: 100%;
+  background-color: #ddd;
 }
 
 .skills {
-  text-align: right; /* Right-align text */
-  padding-top: 10px; /* Add top padding */
-  padding-bottom: 10px; /* Add bottom padding */
-  color: white; /* White text color */
+  text-align: right;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
 }
 
 .al {
   width: 0%;
   background-color: #04aa6d;
-} /* Green */
+}
 .kh {
   width: 0%;
   background-color: #2196f3;
-} /* Blue */
+}
 .ga {
   width: 0%;
   background-color: #f44336;
-} /* Red */
+}
 .mr {
   width: 0%;
   background-color: #808080;
-} /* Dark Grey */
+}
