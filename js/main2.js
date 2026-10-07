@@ -474,3 +474,35 @@ function Chart() {
   kh.style.width = `${(khi / len) * 100}%`;
   mr.style.width = `${(mri / len) * 100}%`;
 }
+
+///////////////////////
+
+function openNav() {
+  document.getElementById("mySidepanel").style.width = "250px";
+  document.getElementById("mySidepanel").style.height = "100%";
+}
+
+function closeNav() {
+  document.getElementById("mySidepanel").style.width = "0";
+  document.getElementById("mySidepanel").style.height = "0";
+}
+const openbtn = document.querySelector(".openbtn");
+openbtn.addEventListener("click", () => openNav());
+const closebtn = document.querySelector(".closebtn");
+closebtn.addEventListener("click", () => closeNav());
+
+const navButtons = document.querySelectorAll(".app-nav button");
+
+navButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const targetId = btn.dataset.target;
+    const section = document.getElementById(targetId);
+
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  });
+});

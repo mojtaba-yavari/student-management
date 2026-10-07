@@ -13,8 +13,24 @@
     </header>
 
     <button id="myBtn" title="Go to top">Top</button>
+    <button class="openbtn">&#9776; منو</button>
+    <div id="mySidepanel" class="sidepanel app-nav" dir="ltr">
+      <button
+        href="javascript:void(0)"
+        class="closebtn"
+        style="text-align: left"
+      >
+        &times;
+      </button>
+      <button data-target="dash">داشبورد</button>
+      <button data-target="chart">نمودار دانشجویان</button>
+      <button data-target="add-student-section">➕ افزودن</button>
+      <button data-target="search-filter-section">🔍 جست‌وجو</button>
+      <button data-target="students-section">📋 لیست دانشجوها</button>
+    </div>
+
     <main class="container">
-      <section class="card">
+      <section class="card" id="dash">
         <h2>داشبورد</h2>
         <div class="form-row">
           <div>
@@ -40,7 +56,7 @@
         </div>
       </section>
 
-      <section class="card" dir="ltr">
+      <section class="card" id="chart" dir="ltr">
         <h2 dir="rtl">نمودار دانش اموزان</h2>
         <p>عالی</p>
         <div class="container1">

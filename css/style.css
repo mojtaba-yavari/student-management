@@ -665,3 +665,69 @@ body {
   width: 0%;
   background-color: #808080;
 }
+
+/*///////////////////*/
+
+.sidepanel {
+  height: 250px;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+
+  background: linear-gradient(135deg, var(--color-primary) 0%, #7c3aed 100%);
+  overflow-x: hidden;
+  padding-top: 60px;
+  transition: 0.5s;
+}
+
+.sidepanel button {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #010101;
+  display: block;
+  transition: 0.3s;
+
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: right;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.sidepanel button:hover {
+  color: #f1f1f1;
+  background: #575757;
+}
+
+.sidepanel button:focus {
+  outline: 2px solid #007bff;
+}
+
+.sidepanel .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #0567de;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
