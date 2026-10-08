@@ -1,4 +1,5 @@
 const STORAGE_KEY = "students";
+const THEME = "THEME";
 
 export function getStudentsFromStorage() {
   let data = localStorage.getItem(STORAGE_KEY);
@@ -10,7 +11,13 @@ export function getStudentsFromStorage() {
 
   return JSON.parse(data);
 }
-
+export function getthem() {
+  let them = localStorage.getItem(THEME);
+  return JSON.parse(them);
+}
+export function savathem(theme) {
+  localStorage.setItem(THEME, JSON.stringify(theme));
+}
 export function saveStudentsToStorage(students) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(students));
 }

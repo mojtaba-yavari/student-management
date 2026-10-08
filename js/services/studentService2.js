@@ -1,6 +1,8 @@
 import {
   getStudentsFromStorage,
   saveStudentsToStorage,
+  getthem,
+  savathem,
 } from "./storageService.js";
 import { Student } from "../models/Student.js";
 
@@ -9,7 +11,30 @@ const delay = (ms) => {
     setTimeout(resolve, ms);
   });
 };
+////////////////////////////////
+export async function loadteme() {
+  await delay(1000);
+  try {
+    let theme = getthem();
+    if (theme === null) {
+      theme = "light";
+      savathem("light");
+    }
+    return theme;
+  } catch (error) {
+    throw new Error("اطلاعات  تم قابل خواندن نیست");
+  }
+}
+export async function changethem(them) {
+  try {
+    savathem(them);
+    return them;
+  } catch (error) {
+    throw new Error("خطا در تقییر تم");
+  }
+}
 
+//////////////////////////////
 // دریافت دانشجوها
 export async function loadStudents() {
   await delay(1000);

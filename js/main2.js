@@ -3,6 +3,8 @@ import {
   loadStudents,
   updateStudent,
   deleteStudent,
+  loadteme,
+  changethem,
 } from "./services/studentService2.js";
 import {
   Validation_name,
@@ -30,6 +32,7 @@ const Delay = document.getElementById("Delay");
 const success = document.getElementById("Success");
 
 let students = [];
+let theme = "";
 let s1 = [];
 
 const students_list = document.getElementById("students-list");
@@ -82,7 +85,11 @@ async function startApp() {
   try {
     Delay.classList.remove("hidden");
     students = await loadStudents();
+    theme = await loadteme();
     s1 = students;
+    if (theme != "light") {
+      toggleDark();
+    }
 
     cheackdasbord();
 
@@ -522,5 +529,12 @@ const body = document.querySelector("body");
 
 function toggleDark() {
   body.classList.toggle("dark");
+  if (body.classList.contains("dark")) {
+    theme = "dark";
+    changethem("dark");
+  } else {
+    theme = "light";
+    changethem("light");
+  }
 }
 mybutton2.addEventListener("click", () => toggleDark());
