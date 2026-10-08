@@ -416,6 +416,7 @@ let mybutton = document.getElementById("myBtn");
 
 window.onscroll = function () {
   scrollFunction();
+  scrollFunction2();
 };
 
 function scrollFunction() {
@@ -506,3 +507,20 @@ navButtons.forEach((btn) => {
     }
   });
 });
+/////////////////////////////
+let mybutton2 = document.getElementById("myBtn2");
+
+function scrollFunction2() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton2.style.display = "block";
+  } else {
+    mybutton2.style.display = "none";
+  }
+}
+
+const body = document.querySelector("body");
+
+function toggleDark() {
+  body.classList.toggle("dark");
+}
+mybutton2.addEventListener("click", () => toggleDark());

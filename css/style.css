@@ -638,6 +638,26 @@ body {
 #myBtn:hover {
   background-color: #555;
 }
+
+#myBtn2 {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 30px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: rgb(10, 146, 219);
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+#myBtn2:hover {
+  background-color: #555;
+}
 /*//////////////////////*/
 
 .container1 {
@@ -735,4 +755,23 @@ a {
 
 .openbtn:hover {
   background-color: #444;
+}
+
+/*//////////////////////////////*/
+body.dark {
+  background-color: black;
+}
+
+body.dark .card {
+  background-color: #021d27;
+}
+
+body.dark .form-group label,
+body.dark .form-row div {
+  color: white;
+}
+
+body.dark #Success,
+body.dark #success {
+  color: white;
 }
